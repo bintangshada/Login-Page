@@ -4,6 +4,7 @@ const eye = document.getElementById('eye');
 const passwordInput = document.getElementById('password');
 const message = document.getElementById('message');
 const fail = document.getElementById('fail');
+const easterEgg = document.querySelector('.easter-egg');
 
 const duar = new Audio();
 duar.src = './assets/vine-boom.mp3';
@@ -78,3 +79,43 @@ loginForm.addEventListener('submit', (e) => {
     loginBtn.style.transform = "scale(1.1)";
   }
 });
+
+let konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konamiPosition = 0;
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === konami[konamiPosition]) {
+    konamiPosition++;
+    
+    if (konamiPosition === konami.length) {
+      showEasterEgg();
+      konamiPosition = 0;
+    }
+  } else {
+    konamiPosition = 0;
+  }
+});
+
+let clickCount = 0;
+let clickTimer;
+document.querySelector('.login-container h2').addEventListener('click', () => {
+  clickCount++;
+  
+  clearTimeout(clickTimer);
+  clickTimer = setTimeout(() => {
+    clickCount = 0;
+  }, 1000);
+  
+  if (clickCount >= 3) {
+    showEasterEgg();
+    clickCount = 0;
+  }
+});
+
+function showEasterEgg() {
+  easterEgg.classList.add('show');
+  
+  setTimeout(() => {
+    easterEgg.classList.remove('show');
+  }, 5000);
+}
