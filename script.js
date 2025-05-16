@@ -5,9 +5,9 @@ const passwordInput = document.getElementById('password');
 const message = document.getElementById('message');
 const fail = document.getElementById('fail');
 
-const duar = new Audio('/assets/vine-boom.mp3');
-const wow = new Audio('/assets/anime-wow-sound-effect.mp3');
-const okgas = new Audio('/assets/okgas.mp3');
+const duar = new Audio('./assets/vine-boom.mp3');
+const wow = new Audio('./assets/anime-wow-sound-effect.mp3');
+const okgas = new Audio('./assets/okgas.mp3');
 
 function moveButton() {
   const x = Math.random() * 300 - 100;
