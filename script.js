@@ -5,9 +5,33 @@ const passwordInput = document.getElementById('password');
 const message = document.getElementById('message');
 const fail = document.getElementById('fail');
 
-const duar = new Audio('./assets/vine-boom.mp3');
-const wow = new Audio('./assets/anime-wow-sound-effect.mp3');
-const okgas = new Audio('./assets/okgas.mp3');
+const duar = new Audio();
+duar.src = './assets/vine-boom.mp3';
+duar.preload = 'auto';
+
+const wow = new Audio();
+wow.src = './assets/anime-wow-sound-effect.mp3';
+wow.preload = 'auto';
+
+const okgas = new Audio();
+okgas.src = './assets/okgas.mp3';
+okgas.preload = 'auto';
+
+function playSound(sound) {
+  sound.currentTime = 0;
+  
+  const playPromise = sound.play();
+  
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        console.log('Audio playback started successfully');
+      })
+      .catch(error => {
+        console.log('Audio playback error:', error);
+      });
+  }
+}
 
 function moveButton() {
   const x = Math.random() * 300 - 100;
@@ -41,17 +65,14 @@ loginForm.addEventListener('submit', (e) => {
   const pass = document.getElementById('password').value;
 
   if (user !== 'admin' || pass !== '1234') {
-    duar.currentTime = 0;
-    duar.play();
+    playSound(duar);
     message.textContent = "Kamu siapa jir? 😡";
     loginBtn.textContent = "Gak kena wle 😛";
     moveButton();
     showFail();
   } else {
-    wow.currentTime = 0;
-    wow.play();
-    okgas.currentTime = 0;
-    okgas.play();
+    playSound(wow);
+    playSound(okgas);
     message.textContent = "OK GAS OK GAS! 🚀";
     loginBtn.textContent = "Lu keren bang! 😎";
     loginBtn.style.transform = "scale(1.1)";
