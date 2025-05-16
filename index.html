@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galaxy Login Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="easter-egg">
+    <p>user = admin</p>
+    <p>password = 1234</p>
+  </div>
+
+  <div class="stars"></div>
+  <div class="login-container">
+    <h2>🔎 Lets Inspect 🔎</h2>
+    <form id="loginForm">
+      <div class="form-wrapper">
+        <input type="text" id="username" placeholder="Username" required />
+      </div>
+      <div class="form-wrapper">
+        <input type="password" id="password" placeholder="Password" required />
+        <div id="eye" class="eye-icon">👁</div>
+      </div>
+      <button id="loginBtn" type="submit">Launch</button>
+    </form>
+    <p id="message"></p>
+  </div>
+  
+  <div id="fail" class="fail">
+    <img src="/assets/wle.jpeg" alt="Zesty Cat" />
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
