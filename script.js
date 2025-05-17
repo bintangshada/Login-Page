@@ -5,6 +5,7 @@ const passwordInput = document.getElementById('password');
 const message = document.getElementById('message');
 const fail = document.getElementById('fail');
 const easterEgg = document.querySelector('.easter-egg');
+const success = document.getElementById('success');
 
 const duar = new Audio();
 duar.src = './assets/vine-boom.mp3';
@@ -48,6 +49,10 @@ function showFail() {
   }, 500);
 }
 
+function showSuccess(){
+  success.classList.add('show');
+}
+
 eye.addEventListener('click', () => {
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
@@ -77,6 +82,7 @@ loginForm.addEventListener('submit', (e) => {
     message.textContent = "OK GAS OK GAS! 🚀";
     loginBtn.textContent = "Lu keren bang! 😎";
     loginBtn.style.transform = "scale(1.1)";
+    showSuccess();
   }
 });
 
