@@ -19,6 +19,10 @@ const okgas = new Audio();
 okgas.src = './assets/okgas.mp3';
 okgas.preload = 'auto';
 
+const atmin = new Audio();
+atmin.src = './assets/atmin.mp3';
+atmin.preload = 'auto';
+
 function playSound(sound) {
   sound.currentTime = 0;
   
@@ -120,8 +124,8 @@ document.querySelector('.login-container h2').addEventListener('click', () => {
 
 function showEasterEgg() {
   easterEgg.classList.add('show');
-  
+  playSound(atmin);
   setTimeout(() => {
     easterEgg.classList.remove('show');
-  }, 5000);
+  }, 21000);
 }
